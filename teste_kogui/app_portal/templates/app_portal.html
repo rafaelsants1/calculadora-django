@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="{% static 'app_portal/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body class="calculadora-body">
+    <h2>Calculadora Avançada</h2>
+    <h3>Calculadora com histórico de operações</h3>
+
+    <div class="calculadora-container">
+        <div class="left-panel">
+            <form method="POST" class="calculadora-form">
+                {% csrf_token %}
+                <input type="text" name="expressao" id="display" readonly class="display" value="{{ resultado|default:expressao }}" placeholder="Ex: 2+3">
+
+                <div class="teclado">
+                    {% for linha in teclado %}
+                        <div class="linha">
+                            {% for label, value in linha %}
+                                <button type="button" class="btn" onclick="inserir('{{ value }}')">{{ label }}</button>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    <div class="linha">
+                        <button type="button" class="btn" onclick="limpar()">C</button>
+                        <button type="submit" class="btn-igual">=</button>
+                    </div>
+                </div>
+            </form>
+
+            {% if resultado is not None %}
+                <p class="resultado"></p>
+            {% endif %}
+        </div>
+
+        <div class="right-panel">
+            <h3 class="history-title">🕓 Histórico</h3>
+            <div class="history-box">
+                {% if historico %}
+                    {% for item in historico %}
+                        <div class="history-item">
+                            {{ item.operando1 }} {{ item.operador }} {{ item.operando2 }} = <strong>{{ item.resultado }}</strong><br>
+                            <div class="history-time">{{ item.data }}</div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="empty-history">Nenhuma operação realizada</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <form method="POST" action="{% url 'logout' %}" class="logout-form">
+        {% csrf_token %}
+        <button type="submit" class="logout-button">Sair</button>
+    </form>
+
+    <script>
+        function inserir(valor) {
+            const display = document.getElementById("display");
+            display.value += valor;
+        }
+
+        function limpar() {
+            document.getElementById("display").value = "";
+        }
+    </script>
+</body>
+</html>

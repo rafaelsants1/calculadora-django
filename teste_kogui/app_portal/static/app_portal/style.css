@@ -1,0 +1,251 @@
+/* ---------------- Login Page ---------------- */
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+
+body, html {
+    background: linear-gradient(900deg, #1e0035, #4a1c77, #8938eb);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arimo', sans-serif;
+}
+
+.container h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    color: white;
+    font-family: 'Arimo', sans-serif;
+    font-size: 35px;
+}
+
+.container h3 {
+    text-align: center;
+    color: white;
+    font-family: 'Arimo', sans-serif;
+    font-weight: lighter;
+    padding: 5px;
+    font-size: 15px;
+}
+
+form {
+    background: #321455;
+    width: 300px;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    border: 1px solid #5f5768;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+}
+
+form h2 {
+    display: flex;
+    text-align: center;
+    color: white;
+    font-family: 'Arimo', sans-serif;
+    font-size: 15px;
+    padding: 4px;
+    margin: 4px;
+}
+
+form input {
+    background-color: transparent;
+    border: 1px solid #5f5768;
+    border-radius: 10px;
+    color: white;
+    padding: 8px;
+    margin: 1px;
+    text-align: justify;
+    width: 90%;
+}
+
+form button {
+    background-color: #4c00fc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+form p {
+    font-weight: lighter;
+    font-size: 13px;
+}
+/* ---------------- Calculadora ---------------- */
+body.calculadora-body {
+    background: linear-gradient(900deg, #1e0035, #4a1c77, #8938eb);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arimo', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2, h3 {
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.calculadora-container {
+    display: flex;
+    gap: 30px;
+    background: transparent;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 1000px;
+    width: 100%;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.right-panel {
+    width: 35%;
+    background-color: #321455;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #5f5768;
+    max-height: 100px;
+}
+
+.display {
+    background-color: #131528;
+    color: white;
+    font-size: 32px;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.teclado {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.linha {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    flex: 1;
+    padding: 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: #2b2d42;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #3f425a;
+}
+
+.btn-igual {
+    background: linear-gradient(45deg, #4c00fc, #0090ff);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 20px;
+    border: none;
+    border-radius: 12px;
+    flex: 1;
+    cursor: pointer;
+}
+
+.btn-igual:hover {
+    opacity: 0.9;
+}
+
+.btn-red {
+    background-color: #e63946;
+    color: white;
+}
+
+.history-title {
+    text-align: left;
+}
+
+.history-box {
+    margin-top: 15px;
+    background-color: #131528;
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #2a2a40;
+}
+
+.history-time {
+    font-size: 12px;
+    color: #bbb;
+    margin-top: 5px;
+}
+
+.logout-form {
+    margin-top: 20px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+}
+
+.logout-button {
+    background-color: #e63946;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    opacity: 0.9;
+}

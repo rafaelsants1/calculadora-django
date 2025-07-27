@@ -25,9 +25,15 @@ SECRET_KEY = 'django-insecure-_7u5br43o%+4=7gj(f+nrkygvq8^!w*dw8ed-h%ss$$10v^^j!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+AUTHENTICATION_BACKENDS = [
+    'app_portal.backend.EmailOrUsername',
+]
+
 ALLOWED_HOSTS = []
 
-
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'calculadora'
+LOGOUT_REDIRECT_URL = 'login'
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app_portal',
 ]
 
 MIDDLEWARE = [
