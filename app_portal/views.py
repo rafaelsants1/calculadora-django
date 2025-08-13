@@ -31,11 +31,11 @@ def login_view(request):
             password1 = request.POST.get('new_password1')
             password2 = request.POST.get('new_password2')
 
-            if password1 != password2:
-                return render(request, 'login.html', {'erro': 'As senhas não coincidem'})
-            
             if User.objects.filter(username=username).exists():
                 return render(request, 'login.html', {'erro': 'Usuário já existe'})
+
+            if password1 != password2:
+                return render(request, 'login.html', {'erro': 'As senhas não coincidem'})
             
             user = User.objects.create_user(username=username, password=password1, email=email)
             login(request, user) # Realiza login automaticamente após cadastro
@@ -46,7 +46,7 @@ def login_view(request):
 @login_required # Garante que somente os usuários logados podem acessar
 def calculadora_view(request):
     # Busca os últimos 5 cálculos realizados do usuário
-    historico = Operacao.objects.filter(usuario=request.user).order_by('-data')[:5]
+    historico = Operacao.objects.filter(usuario=request.user).order_by('-data')[:6]
     resultado = ""
     expressao = ""
 

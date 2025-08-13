@@ -32,13 +32,13 @@
         <form method="POST">
             <h2>Cadastrar</h2>
 
-        {% csrf_token %}
-        <input type="hidden" name="form_type" value="register"><br>
-        <input type="text" name="new_username" placeholder="Nome do usuário" required><br>
-        <input type="email" name="new_email" placeholder="E-mail" required><br>
-        <input type="password" name="new_password1" placeholder="Senha" required><br>
-        <input type="password" name="new_password2" placeholder="Confirmar senha" required><br>
-        <button type="submit">Cadastrar</button>
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="register"><br>
+            <input type="text" name="new_username" placeholder="Nome do usuário" required><br>
+            <input type="email" name="new_email" placeholder="E-mail" required><br>
+            <input type="password" name="new_password1" placeholder="Senha" required><br>
+            <input type="password" name="new_password2" placeholder="Confirmar senha" required><br>
+            <button type="submit">Cadastrar</button>
     </form>
     </div>
 </body>

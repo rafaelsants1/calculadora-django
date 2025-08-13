@@ -70,6 +70,29 @@
         function limpar() {
             document.getElementById("display").value = "";
         }
+
+        function matchPanelsHeight() {
+            const left = document.querySelector('.left-panel');
+            const right = document.querySelector('.right-panel');
+            if (!left || !right) return;
+
+            right.style.minHeight = '';
+
+            
+            const leftRect = left.getBoundingClientRect();
+            const leftHeight = Math.ceil(leftRect.height);
+
+            
+            right.style.minHeight = (leftHeight) + 'px';
+            }
+
+            
+            window.addEventListener('load', matchPanelsHeight);
+            window.addEventListener('resize', function() {
+            
+            clearTimeout(window._matchPanelsTimeout);
+            window._matchPanelsTimeout = setTimeout(matchPanelsHeight, 120);
+            });
     </script>
 </body>
 </html>

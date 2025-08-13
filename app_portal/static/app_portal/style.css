@@ -111,23 +111,30 @@ h3 {
     font-weight: 300;
     margin-bottom: 20px;
 }
+* { box-sizing: border-box; }
 
 .calculadora-container {
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
     gap: 30px;
     background: transparent;
     padding: 30px;
     border-radius: 20px;
     max-width: 1000px;
     width: 100%;
-    justify-content: center;
-    align-items: stretch;
+}
+
+.left-panel,
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
 }
 
 .left-panel {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 60%;
 }
 
@@ -136,11 +143,11 @@ h3 {
     background-color: #321455;
     border-radius: 15px;
     padding: 20px;
+    border: 1px solid #5f5768;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid #5f5768;
-    max-height: 100px;
+    height: auto;
+    min-height: 100%;
 }
 
 .display {
@@ -214,7 +221,9 @@ h3 {
     border-radius: 10px;
     padding: 15px;
     color: white;
+    flex: 1;
     overflow-y: auto;
+    max-height: none;
 }
 
 .history-item {
